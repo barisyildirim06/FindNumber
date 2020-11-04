@@ -19,11 +19,9 @@ function App() {
 			return number;
 	}
 
-	console.log(test)
 	var userInput
 	const onUserInputChange=(event)=>{
 		userInput = event.target.value
-		console.log(userInput)
 	}
 	const onSubmit=(e)=>{
 		e.preventDefault()
@@ -58,9 +56,7 @@ function App() {
 		setScores([])
 		setUserInputs([])
 		setTest(randomNumber())
-		console.log(test)
 	}
-
 	return (
 		<div className="App">
 			<h1>Sayı Bulma Oyunu</h1>
