@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import './App.css';
 
 function App() {
+	const [userInput, setUserInput] = useState("")
 	const [userInputs, setUserInputs] = useState([])
 	const [scores, setScores] = useState([])
 	const [test, setTest] = useState()
@@ -19,12 +20,12 @@ function App() {
 			return number;
 	}
 
-	var userInput
 	const onUserInputChange=(event)=>{
-		userInput = event.target.value
+		setUserInput(event.target.value)
 	}
 	const onSubmit=(e)=>{
 		e.preventDefault()
+		setUserInput("")
 		check();
 		setUserInputs([...userInputs, userInput])
 		setScores([...scores, controlArray.sort().join("")])
