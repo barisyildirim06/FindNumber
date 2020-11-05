@@ -9,16 +9,16 @@ The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
 ### See Live
-```
 See Live:
-https://huffpostclone.herokuapp.com
-```
+[http://sayibulmaca.herokuapp.com](http://sayibulmaca.herokuapp.com/)
 ### For Questions
-```
 Linkedin Account:
-https://www.linkedin.com/in/barış-yıldırım-933375194
-```
-```
+- [Linkedin](https://www.linkedin.com/in/barış-yıldırım-933375194)
+  
 Gmail Account:
-yildrmbaris@gmail.com
-```
+- [Gmail](yildrmbaris@gmail.com)
+
+
+
+
+
