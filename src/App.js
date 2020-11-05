@@ -2,36 +2,49 @@ import React, {useState, useEffect} from 'react'
 import './App.css';
 
 function App() {
+	//userInput holds value of current input
 	const [userInput, setUserInput] = useState("")
+	//userInputs holds Array of previous inputs
 	const [userInputs, setUserInputs] = useState([])
+	//scores holds Array of scores as string -> for example ["++-","--"]
 	const [scores, setScores] = useState([])
+	//test holds 4 digits random number with no repetitions
 	const [test, setTest] = useState()
+	//decleration of controlArray
+	var controlArray=[]
 
+	//useEffect hook will trigger randomNumber() and set it's value as test value
 	useEffect(() => {
 		setTest(randomNumber())
 	}, [])
 
+	//Generates 4 digit random number with no repetitions
 	function randomNumber(){
 		return mix( "0123456789".split('') ).join('').substring(0,4);
 	}
 	
+	//suffles the number
 	function mix(number){
-			for(var j, x, i = number.length; i; j = Math.floor(Math.random() * i), x = number[--i], number[i] = number[j], number[j] = x);
-			return number;
+		for(var j, x, i = number.length; i; j = Math.floor(Math.random() * i), x = number[--i], number[i] = number[j], number[j] = x);
+		return number;
 	}
-
+	//This function triggers on every input change and assign the target value as userInput
 	const onUserInputChange=(event)=>{
 		setUserInput(event.target.value)
 	}
+	//on submittion of userInput, this function push current userInput into userInputs
+	//also the function triggers check() and by changing controlArray, this function push controlArray into scores Array
+	//Before pushing controlArray, it is sorted in order to sort controlArray as "++--" instead of unsorted combinations like "-++-"
+	//After all of these operations, function sets userInput and controlArray empty.
 	const onSubmit=(e)=>{
 		e.preventDefault()
-		setUserInput("")
 		check();
 		setUserInputs([...userInputs, userInput])
 		setScores([...scores, controlArray.sort().join("")])
+		setUserInput("")
 		controlArray=[];
 	}
-	var controlArray=[]
+	//this function compares test number with userInput
 	const check = ()=>{
 		if(test===userInput){
 			alert("Kazandınız!")
@@ -53,6 +66,7 @@ function App() {
 		}
 	}
 
+	// on restarting game both score and Input array refresh and new test number is assigned
 	const onRestartGame=()=>{
 		setScores([])
 		setUserInputs([])
