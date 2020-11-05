@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import './App.css';
 
+
 function App() {
 	//userInput holds value of current input
 	const [userInput, setUserInput] = useState("")
@@ -73,10 +74,12 @@ function App() {
 		setTest(randomNumber())
 	}
 	return (
-		<div className="App">
+		<div >
 			<h1>Sayı Bulma Oyunu</h1>
+			<br/>
+			<br/>
 			<form action="" onSubmit={onSubmit}>
-				<input type="text" value={userInput} onChange={onUserInputChange} minLength="4" maxLength="4"/>
+				<input placeholder="Lütfen Sayı Giriniz" type="text" value={userInput} onChange={onUserInputChange} minLength="4" maxLength="4"/>
 				<button type="submit">Sayıyı Dene</button>
 			</form>
 			<br/>
@@ -86,15 +89,15 @@ function App() {
 					<th>Tahmin</th>
 					<th>Sonuç</th>
 				</tr>
-				<tr>
+				<tr className="border">
 					<td>
 						{userInputs.map((userInput,index)=>{
-							return <div key={index}>{userInput}</div>
+							return <div key={index} className="border">{userInput}</div>
 						})}
 					</td>
 					<td>
 						{scores.map((score,index)=>{
-							return <div key={index}>{score.length ? score : <br/>}</div>
+							return <div key={index} className="border">{score.length ? score : <br/>}</div>
 						})}
 					</td>
 				</tr>
